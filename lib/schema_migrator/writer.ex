@@ -1,14 +1,7 @@
 defmodule SchemaMigrator.Writer do
-
-  # create directories if none exist
-  def create_dirs do
-    Mix.Generator.create_directory "./schema_migrator"
-  end
-
-
-  # generate migration files
-  def gen_file(path, filename, content) do
-    Mix.Generator.create_file  path <> create_file_name(filename), content
+  # Generate migration files
+  def write_migration({schema, template}, path \\ "./migrations/") do
+    File.write  path <> create_file_name(schema[:source]),template
   end
 
   defp create_file_name(name), do: to_string(timestamp()) <> "_add_" <> name <> ".exs"

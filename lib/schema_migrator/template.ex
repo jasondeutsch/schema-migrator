@@ -1,13 +1,14 @@
 defmodule SchemaMigrator.Template do
   require Mix.Generator
 
-  def gen_template(contents) do
-    migration_add_table_template contents
+  def gen_template({module, schema}, repo) do
+    template = migration_add_table_template(Map.put(schema, :repo, repo))
+    {schema, template}
   end
 
 
   Mix.Generator.embed_template :migration_add_table, """
-    defmodule <%= @source %>.addTable<%= String.capitalize @source %> do
+    defmodule <%= @repo %>.addTable<%= String.capitalize @source %> do
       use Ecto.Migration
 
       def change do
@@ -20,6 +21,5 @@ defmodule SchemaMigrator.Template do
         end
       end
     end
-
     """
 end

@@ -2,6 +2,6 @@ defmodule Mix.Tasks.SchemaMigration do
   use Mix.Task
 
   def run(_) do
-    IO.puts "hello!"
+    SchemaMigrator.run()
   end
 end
