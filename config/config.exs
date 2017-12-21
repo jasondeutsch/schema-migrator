@@ -30,4 +30,5 @@ use Mix.Config
 #     import_config "#{Mix.env}.exs"
 
 config :schema_migrator,
-  repos: [AdvancedFind.Repo, SampleModels.Company, SampleModels.Person]
+  repos: ["AdvancedFind.Repo": [SampleModels.Company, SampleModels.Person],
+         "AdvancedFind.BostonRepo": [SampleModels.Company2, SampleModels.Person2]]
