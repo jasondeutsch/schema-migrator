@@ -7,7 +7,9 @@ defmodule SchemaMigrator.Reader do
 
   def process(modules) do
     modules
+    |> IO.inspect
     |> Enum.map(&get_struct/1)
+    |> IO.inspect
     |> Enum.map(&get_schema/1)
   end
 
