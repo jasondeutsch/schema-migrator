@@ -1,16 +1,12 @@
 defmodule SchemaMigrator.Utils do
 
   def parse_repo(module) do
-    repo = module
-      |> Atom.to_string
+    [_,repo | _]=
+      module
+      |> Atom.to_string()
       |> String.split(".")
 
-    case repo do
-      [_,x]  ->
-        x
-      [_,x,_] ->
-        x
-    end
+    repo
   end
 
   def if_not_then(val, func) do

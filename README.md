@@ -1,4 +1,5 @@
 # SchemaMigrator
+![](https://imgs.xkcd.com/comics/automation.png]
 
 **TODO: Add description**
 
