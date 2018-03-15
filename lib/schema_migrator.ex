@@ -10,6 +10,7 @@ defmodule SchemaMigrator do
   require Logger
 
   @doc """
+  Run from inside an iex session for your application.
   """
   def run do
     repos = Env.config
@@ -18,7 +19,6 @@ defmodule SchemaMigrator do
 
   defp run_migrator(repo, modules) do
     modules
-    |> IO.inspect
     |> Reader.process
     |> IO.inspect
     |> Enum.map(fn x -> Template.gen_template(x, repo) end)
